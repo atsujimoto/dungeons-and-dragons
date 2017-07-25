@@ -1,0 +1,33 @@
+<h2>Please enter the total number of characters.  Include both players and enemies.</h2>
+<form>
+	<input type="number" name="characters" ng-model="charTotal">
+	<label for="characters"># of Characters</label>
+	<button type="submit" ng-click="setNum()">Submit</button>
+</form>
+<form id="char-stats" ng-if="playersEntered">
+	<h3>Enter the name and dexterity for each character</h3>
+	<div class="inputs" ng-repeat="i in getCharInfo(number) track by $index">
+		<input type="text" name="char{{$index+1}}" ng-model="character[$index].name">
+		<label for="char{{$index+1}}">Name</label>
+		<input type="number" name="dex{{$index+1}}" ng-model="character[$index].dex">
+		<label for="dex{{$index+1}}">Dex</label>
+	</div>
+	<button type="submit" ng-click="roll()">Roll for Turn Order</button>
+</form>
+<div id="turn-diagram" ng-if="rollComplete">
+	<div class="flex">
+		<div class="col3">Turn Order</div>
+		<div class="col4">Character Name</div>
+		<div class="col2">Dexterity</div>
+		<div class="col2">Roll</div>
+		<div class="col1">Total</div>
+	</div>
+	<div class="flex sheet" ng-repeat="char in characters | orderBy: '-Total'">
+		<div class="col3">{{$index+1}}</div>
+		<div class="col4">{{char.Name}}</div>
+		<div class="col2">{{char.Dex}}</div>
+		<div class="col2">{{char.Roll}}</div>
+		<div class="col1">{{char.Total}}</div>
+	</div>
+	<button ng-click="reroll()">Reroll for New Turn Order</button>
+</div>

@@ -1,0 +1,36 @@
+#char-stats {
+	margin: 1em;
+}
+
+.inputs {
+	margin: .5em;
+}
+
+#turn-diagram {
+	margin: 1em;
+	width: 40%;
+}
+
+.col1 {
+	width: 8.33%;
+}
+
+.col2 {
+	width: 16.67%;
+}
+
+.col3 {
+	width: 25%;
+}
+
+.col4 {
+	width: 33.33%;
+}
+
+.flex {
+	display: flex;
+}
+
+.sheet {
+	margin: .5em 0;
+}
