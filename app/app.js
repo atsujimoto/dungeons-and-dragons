@@ -1,8 +1,7 @@
 var app = angular.module('TurnOrder', ['ui.router']);
 
-app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
-
-	$urlRouterProvider.otherwise('/404');
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
 		.state('home', {
@@ -10,6 +9,4 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
 			templateUrl: 'app/views/home.html',
 			controller: 'CharactersCtrl'
 		});
-
-	$locationProvider.html5Mode(true);
 }]);
